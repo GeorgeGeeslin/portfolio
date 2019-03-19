@@ -28,15 +28,10 @@ const Layout = ({ children, headerSolid }) => (
               ? {
                   paddingTop: 0,
                 }
-              : { paddingTop: "100px" }
+              : { paddingTop: "8rem" }
           }
         >
           {children}
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </div>
       </>
     )}

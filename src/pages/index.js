@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/about"
-import "../components/index.scss"
+import "../components/hero.scss"
 
 class IndexPage extends React.Component {
   state = {
@@ -17,6 +17,7 @@ class IndexPage extends React.Component {
       "I shaved this yak for you",
       "I make stuff for the internet",
       "I'm a web developer",
+      "I centered this div all by myself",
       "I centered this div all by myself",
     ]
 
@@ -84,6 +85,14 @@ class IndexPage extends React.Component {
             <br />
             <span id="line3">{this.state.wittyLine}</span>
           </h1>
+          <div id="sky">
+            <div class="stars" id="stars1" />
+            <div class="stars" id="stars2" />
+            <div class="stars" id="stars3" />
+            <div class="stars" id="stars4" />
+            <div class="stars" id="stars5" />
+            <div class="stars" id="stars6" />
+          </div>
         </div>
 
         <About />

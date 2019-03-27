@@ -16,33 +16,37 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <div className="blog-post-list">
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <div key={node.fields.slug}>
-                <Img
-                  fluid={node.frontmatter.coverImage.childImageSharp.fluid}
-                />
+        <div className="blog-list-container">
+          <div className="blog-post-list">
+            {posts.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug
+              return (
+                <div className="blog-preview-item" key={node.fields.slug}>
+                  <hr />
+                  <Link to={node.fields.slug}>
+                    <Img
+                      fluid={node.frontmatter.coverImage.childImageSharp.fluid}
+                    />
 
-                <h3
-                  style={{
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
+                    <h2>{title}</h2>
+                    <small>{node.frontmatter.date}</small>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
                   </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </div>
-            )
-          })}
+                  {node.frontmatter.tags && (
+                    <ul>
+                      {node.frontmatter.tags.map((tag, index) => (
+                        <li key={index}>{tag}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )
+            })}
+          </div>
         </div>
         <aside>
           <p>sidebar</p>
@@ -72,9 +76,10 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
             coverImage {
               childImageSharp {
-                fluid(maxWidth: 600, maxHeight: 360) {
+                fluid(maxWidth: 600, maxHeight: 260) {
                   ...GatsbyImageSharpFluid
                 }
               }

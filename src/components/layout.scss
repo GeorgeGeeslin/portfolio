@@ -5,6 +5,7 @@ $small-desktop: 1024px;
 $large-desktop: 1500px;
 
 $dark-gray: #444;
+$light-gray: #f8f8f8;
 
 @mixin mobile {
   @media (max-width: #{$tablet}) {
@@ -55,7 +56,7 @@ html {
 body {
   margin: 0;
   min-width: 400px;
-  background-color: #f8f8f8;
+  background-color: $light-gray;
 }
 
 p {
@@ -65,24 +66,34 @@ p {
   margin-left: auto;
 }
 
+hr {
+  display: block;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: $light-gray;
+  border-width: 1px;
+  width: 80%;
+}
+
 #hero {
-  //  position: fixed;
-  background: url(https://res.cloudinary.com/drkbswe4j/image/upload/v1549064767/austin-cityscape-night-hdr-XL_sbpgox.jpg)
-    no-repeat center center;
   height: 100vh;
-  //width: 100vw;
   width: calc(100vw - (100vw - 100%));
-  background-size: cover;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 
   #heading {
-    position: relative;
+    position: absolute;
     color: white;
     text-align: center;
     padding-top: 200px;
     margin: 0;
+    width: 100%;
 
     span {
       position: relative;
+      background: -webkit-linear-gradient(white, #38495a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
@@ -282,14 +293,43 @@ nav.solid {
 }
 
 /*blog*/
+.blog-list-container {
+  //background-color: black;
+}
 
 .blog-post-list {
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 600px;
   margin: 0 auto;
-  @include non-mobile {
-    float: left;
+  background-color: $light-gray;
+}
+
+.blog-preview-item {
+  a {
+    color: $dark-gray;
+    text-decoration: none;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px; /* TODO implement normalize css.. or CSS Modules which includes it and then remove this style */
+  }
+  li {
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 0.5em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    background-color: red;
+    border-radius: 5%;
   }
 }
 
+/*
 aside {
   background-color: blue;
   @include non-mobile {
@@ -297,6 +337,7 @@ aside {
     width: 25%;
   }
 }
+*/
 
 /*
 .project-container {

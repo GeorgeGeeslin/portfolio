@@ -316,7 +316,6 @@ nav.solid {
   }
   ul {
     list-style-type: none;
-    padding-inline-start: 0px; /* TODO implement normalize css.. or CSS Modules which includes it and then remove this style */
   }
   li {
     display: inline-block;
@@ -324,7 +323,7 @@ nav.solid {
     margin-right: 0.5em;
     padding-left: 0.2em;
     padding-right: 0.2em;
-    background-color: red;
+    background-color: #3c4560;
     border-radius: 5%;
   }
 }

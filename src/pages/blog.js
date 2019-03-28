@@ -50,6 +50,7 @@ class BlogIndex extends React.Component {
         </div>
         <aside>
           <p>sidebar</p>
+          <span className="material-icons">check_circle</span>
         </aside>
       </Layout>
     )

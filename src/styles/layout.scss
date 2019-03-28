@@ -316,14 +316,14 @@ nav.solid {
   }
   ul {
     list-style-type: none;
+    padding-inline-start: 0px;
   }
   li {
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 0.7em;
     margin-right: 0.5em;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-    background-color: #3c4560;
+    padding: 0.2em;
+    background-color: #ed5131;
     border-radius: 5%;
   }
 }

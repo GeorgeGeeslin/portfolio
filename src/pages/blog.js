@@ -5,6 +5,27 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
+
+  handleScroll = () => {
+    let scrolled = document.documentElement.scrollTop
+    let sidebar = document.querySelector(".sidebar")
+
+    if (scrolled > 0 && !sidebar.classList.contains("fade-in-sidebar")) {
+      sidebar.classList.add("fade-in-sidebar")
+    }
+
+    if (scrolled === 0 && sidebar.classList.contains("fade-in-sidebar")) {
+      sidebar.classList.remove("fade-in-sidebar")
+    }
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -48,9 +69,13 @@ class BlogIndex extends React.Component {
             })}
           </div>
         </div>
-        <aside>
+        <aside className="sidebar">
+          <div className="sidebar-expand-container">
+            <span className="material-icons sidebar-expand">arrow_drop_up</span>
+          </div>
           <p>sidebar</p>
-          <span className="material-icons">check_circle</span>
+          <div className="left-sidebar-insert" />
+          <div className="right-sidebar-insert" />
         </aside>
       </Layout>
     )

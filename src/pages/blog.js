@@ -26,6 +26,19 @@ class BlogIndex extends React.Component {
     }
   }
 
+  expandSidebar = () => {
+    let icon = document.querySelector(".sidebar-expand-icon")
+    let sidebar = document.querySelector(".sidebar")
+
+    if (icon.classList.contains("rotate")) {
+      icon.classList.remove("rotate")
+      sidebar.classList.remove("expand")
+    } else {
+      icon.classList.add("rotate")
+      sidebar.classList.add("expand")
+    }
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -70,8 +83,12 @@ class BlogIndex extends React.Component {
           </div>
         </div>
         <aside className="sidebar">
-          <div className="sidebar-expand-container">
-            <span className="material-icons sidebar-expand">arrow_drop_up</span>
+          <div className="expand-icon-positioner" onClick={this.expandSidebar}>
+            <div className="expand-icon-container">
+              <span className="material-icons sidebar-expand-icon">
+                arrow_drop_up
+              </span>
+            </div>
           </div>
           <p>sidebar</p>
           <div className="left-sidebar-insert" />

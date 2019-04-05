@@ -17,11 +17,19 @@ class BlogIndex extends React.Component {
     let scrolled = document.documentElement.scrollTop
     let sidebar = document.querySelector(".sidebar")
 
-    if (scrolled > 0 && !sidebar.classList.contains("fade-in-sidebar")) {
+    if (
+      scrolled > 0 &&
+      !sidebar.classList.contains("fade-in-sidebar") &&
+      !sidebar.classList.contains("fullscreen")
+    ) {
       sidebar.classList.add("fade-in-sidebar")
     }
 
-    if (scrolled === 0 && sidebar.classList.contains("fade-in-sidebar")) {
+    if (
+      scrolled === 0 &&
+      sidebar.classList.contains("fade-in-sidebar") &&
+      !sidebar.classList.contains("fullscreen")
+    ) {
       sidebar.classList.remove("fade-in-sidebar")
     }
   }
@@ -39,10 +47,59 @@ class BlogIndex extends React.Component {
     }
   }
 
+  openFullscreenSidebar = () => {
+    let sidebar = document.querySelector(".sidebar")
+    if (!sidebar.classList.contains("fullscreen")) {
+      sidebar.classList.add("fullscreen")
+      sidebar.classList.remove("expand")
+    }
+  }
+
+  closeFullscreenSidebar = () => {
+    let sidebar = document.querySelector(".sidebar")
+    let icon = document.querySelector(".sidebar-expand-icon")
+    if (sidebar.classList.contains("fullscreen")) {
+      sidebar.classList.remove("fullscreen")
+      icon.classList.remove("rotate")
+    }
+  }
+
+  getTagsWithCounts = posts => {
+    let tagList = []
+    let allTags = []
+    let count, prev, listLength
+
+    posts.forEach(post => {
+      if (post.node.frontmatter.hasOwnProperty("tags")) {
+        const tags = post.node.frontmatter.tags
+        allTags.push(...tags)
+      }
+    })
+
+    allTags.sort()
+
+    allTags.forEach(function(tag, index) {
+      listLength = tagList.length
+      if (listLength === 0 || tag !== prev) {
+        tagList.push({ tag: tag, count: 1 })
+        count = 1
+      } else {
+        count++
+        tagList[listLength - 1].count = count
+      }
+      prev = tag
+    })
+    return tagList
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    let tagList = this.getTagsWithCounts(posts)
+    tagList.sort((a, b) => (a.count < b.count ? 1 : -1))
+
+    console.log(posts)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -71,7 +128,7 @@ class BlogIndex extends React.Component {
                     />
                   </Link>
                   {node.frontmatter.tags && (
-                    <ul>
+                    <ul className="tags">
                       {node.frontmatter.tags.map((tag, index) => (
                         <li key={index}>{tag}</li>
                       ))}
@@ -90,7 +147,67 @@ class BlogIndex extends React.Component {
               </span>
             </div>
           </div>
-          <p>sidebar</p>
+          <div className="mobile-sidebar-content">
+            <div
+              className="close-fullscreen"
+              onClick={this.closeFullscreenSidebar}
+            >
+              X
+            </div>
+            <div className="recent-articles">
+              <h2>Recent Articles</h2>
+              <hr />
+              <ul>
+                {posts.slice(0, 5).map(({ node }, index) => (
+                  <li key={index} className="recent-article">
+                    <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <ul className="sidebar-nav">
+              <li>
+                <Link to="/" className="nav-link">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="nav-link">
+                  Projects
+                </Link>
+              </li>
+            </ul>
+            <div className="tags-headline">
+              <h2>Tags</h2>
+              <hr />
+            </div>
+            <ul className="tags tags-row1">
+              {tagList.slice(0, 4).map(tag => (
+                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+              ))}
+            </ul>
+            <ul className="tags tags-row2">
+              {tagList.slice(4, 7).map(tag => (
+                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+              ))}
+              <li
+                style={{
+                  paddingLeft: "1.5em",
+                  paddingRight: "1.5em",
+                  fontWeight: "bold",
+                  cursor: "default",
+                }}
+                onClick={this.openFullscreenSidebar}
+              >
+                ...
+              </li>
+            </ul>
+            <ul className="tags all-tags">
+              {tagList.map(tag => (
+                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+              ))}
+            </ul>
+          </div>
           <div className="left-sidebar-insert" />
           <div className="right-sidebar-insert" />
         </aside>

@@ -314,6 +314,9 @@ nav.solid {
     margin-bottom: 1rem;
     text-align: center;
   }
+}
+
+.tags {
   ul {
     list-style-type: none;
     padding-inline-start: 0px;
@@ -326,18 +329,11 @@ nav.solid {
     background-color: #ed5131;
     color: black;
     border-radius: 5%;
+    text-align: center;
+    white-space: nowrap;
   }
 }
-/*
-aside {
-  position: fixed;
-  opacity: 0;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  background-color: $light-gray;
-}
-*/
+
 .sidebar {
   position: fixed;
   opacity: 0;
@@ -350,11 +346,82 @@ aside {
 }
 
 .sidebar.expand {
-  height: 100px;
+  height: 200px;
 }
 
 .sidebar.fade-in-sidebar {
   opacity: 1;
+}
+
+.sidebar.fullscreen {
+  top: 5.5em;
+  height: 100vh;
+
+  .expand-icon-positioner {
+    display: none;
+  }
+
+  .left-sidebar-insert {
+    border-style: none;
+  }
+
+  .right-sidebar-insert {
+    border-style: none;
+  }
+
+  .close-fullscreen {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .all-tags {
+    display: flex;
+
+    li {
+      margin-bottom: 1em;
+    }
+  }
+
+  .tags-row1 {
+    display: none;
+  }
+
+  .tags-row2 {
+    display: none;
+  }
+
+  .recent-articles {
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    .recent-article {
+      display: block !important;
+      width: 100%;
+      margin-bottom: 1em;
+      a {
+        margin: 1em;
+        padding: 1em;
+      }
+    }
+  }
+
+  .tags-headline {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 90%;
+  }
 }
 
 .expand-icon-positioner {
@@ -392,10 +459,6 @@ aside {
   transform: rotate(180deg);
 }
 
-.sidebar-expand-icon.rotate {
-  transform: rotate(180deg);
-}
-
 .left-sidebar-insert {
   position: absolute;
   top: 0;
@@ -403,6 +466,7 @@ aside {
   width: calc(50% - 25px);
   height: 100%;
   border-top: 1px solid #60e4ff;
+  pointer-events: none;
 }
 
 .right-sidebar-insert {
@@ -412,6 +476,53 @@ aside {
   width: calc(50% - 25px);
   height: 100%;
   border-top: 1px solid #60e4ff;
+  pointer-events: none;
+}
+
+.mobile-sidebar-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 100;
+
+  a {
+    color: $dark-gray;
+    text-decoration: none;
+    cursor: pointer; /*TODO fix cursor*/
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 100%;
+  }
+
+  li {
+    display: inline-block;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+}
+
+.close-fullscreen {
+  display: none;
+  cursor: default;
+}
+
+.tags.all-tags {
+  display: none;
+}
+
+.recent-articles {
+  display: none;
+}
+
+.tags-headline {
+  display: none;
 }
 
 /*

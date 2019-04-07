@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { tagColors } from "../constants.js"
 
 class BlogIndex extends React.Component {
   componentDidMount() {
@@ -68,6 +69,7 @@ class BlogIndex extends React.Component {
     let tagList = []
     let allTags = []
     let count, prev, listLength
+    const numColors = tagColors.length
 
     posts.forEach(post => {
       if (post.node.frontmatter.hasOwnProperty("tags")) {
@@ -89,6 +91,15 @@ class BlogIndex extends React.Component {
       }
       prev = tag
     })
+
+    tagList.forEach(function(tag, index) {
+      if (index < numColors) {
+        tag.color = tagColors[index]
+      } else {
+        tag.color = tagColors[index - numColors]
+      }
+    })
+
     return tagList
   }
 
@@ -98,8 +109,6 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
     let tagList = this.getTagsWithCounts(posts)
     tagList.sort((a, b) => (a.count < b.count ? 1 : -1))
-
-    console.log(posts)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -132,9 +141,27 @@ class BlogIndex extends React.Component {
                     </Link>
                     {node.frontmatter.tags && (
                       <ul className="tags">
-                        {node.frontmatter.tags.map((tag, index) => (
-                          <li key={index}>{tag}</li>
-                        ))}
+                        {node.frontmatter.tags.map((tag, index) => {
+                          let color
+                          for (let i = 0; i < tagList.length; i++) {
+                            if (tagList[i].tag === tag) {
+                              color = tagList[i].color
+                              break
+                            } else {
+                              color = "#ed5131"
+                            }
+                          }
+                          return (
+                            <li
+                              key={index}
+                              style={{
+                                backgroundColor: color,
+                              }}
+                            >
+                              {tag}
+                            </li>
+                          )
+                        })}
                       </ul>
                     )}
                   </div>
@@ -212,7 +239,9 @@ class BlogIndex extends React.Component {
               </ul>
               <ul className="tags all-tags">
                 {tagList.map(tag => (
-                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+                  <li key={tag.tag} style={{ backgroundColor: tag.color }}>{`${
+                    tag.tag
+                  } (${tag.count})`}</li>
                 ))}
               </ul>
             </div>

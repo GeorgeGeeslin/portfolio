@@ -107,110 +107,119 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <div className="blog-list-container">
-          <div className="blog-post-list">
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <div className="blog-preview-item" key={node.fields.slug}>
-                  <hr />
-                  <Link to={node.fields.slug}>
-                    <Img
-                      fluid={node.frontmatter.coverImage.childImageSharp.fluid}
-                    />
+        <div className="blog-index">
+          <div className="blog-list-container">
+            <div className="blog-post-list">
+              {posts.map(({ node }) => {
+                const title = node.frontmatter.title || node.fields.slug
+                return (
+                  <div className="blog-preview-item" key={node.fields.slug}>
+                    <hr />
+                    <Link to={node.fields.slug}>
+                      <Img
+                        fluid={
+                          node.frontmatter.coverImage.childImageSharp.fluid
+                        }
+                      />
 
-                    <h2>{title}</h2>
-                    <small>{node.frontmatter.date}</small>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </Link>
-                  {node.frontmatter.tags && (
-                    <ul className="tags">
-                      {node.frontmatter.tags.map((tag, index) => (
-                        <li key={index}>{tag}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-        <aside className="sidebar">
-          <div className="expand-icon-positioner" onClick={this.expandSidebar}>
-            <div className="expand-icon-container">
-              <span className="material-icons sidebar-expand-icon">
-                arrow_drop_up
-              </span>
+                      <h2>{title}</h2>
+                      <small>{node.frontmatter.date}</small>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </Link>
+                    {node.frontmatter.tags && (
+                      <ul className="tags">
+                        {node.frontmatter.tags.map((tag, index) => (
+                          <li key={index}>{tag}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
-          <div className="mobile-sidebar-content">
+          <aside className="sidebar">
             <div
-              className="close-fullscreen"
-              onClick={this.closeFullscreenSidebar}
+              className="expand-icon-positioner"
+              onClick={this.expandSidebar}
             >
-              X
+              <div className="expand-icon-container">
+                <span className="material-icons sidebar-expand-icon">
+                  arrow_drop_up
+                </span>
+              </div>
             </div>
-            <div className="recent-articles">
-              <h2>Recent Articles</h2>
-              <hr />
-              <ul>
-                {posts.slice(0, 5).map(({ node }, index) => (
-                  <li key={index} className="recent-article">
-                    <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-                  </li>
+            <div className="sidebar-content">
+              <div
+                className="close-fullscreen"
+                onClick={this.closeFullscreenSidebar}
+              >
+                X
+              </div>
+              <div className="recent-articles">
+                <h2>Recent Articles</h2>
+                <hr />
+                <ul>
+                  {posts.slice(0, 5).map(({ node }, index) => (
+                    <li key={index} className="recent-article">
+                      <Link to={node.fields.slug}>
+                        {node.frontmatter.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <ul className="sidebar-nav">
+                <li>
+                  <Link to="/" className="nav-link">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/" className="nav-link">
+                    Projects
+                  </Link>
+                </li>
+              </ul>
+              <div className="tags-headline">
+                <h2>Tags</h2>
+                <hr />
+              </div>
+              <ul className="tags tags-row1">
+                {tagList.slice(0, 4).map(tag => (
+                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+                ))}
+              </ul>
+              <ul className="tags tags-row2">
+                {tagList.slice(4, 7).map(tag => (
+                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
+                ))}
+                <li
+                  style={{
+                    paddingLeft: "1.5em",
+                    paddingRight: "1.5em",
+                    fontWeight: "bold",
+                    cursor: "default",
+                  }}
+                  onClick={this.openFullscreenSidebar}
+                >
+                  ...
+                </li>
+              </ul>
+              <ul className="tags all-tags">
+                {tagList.map(tag => (
+                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
                 ))}
               </ul>
             </div>
-            <ul className="sidebar-nav">
-              <li>
-                <Link to="/" className="nav-link">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="nav-link">
-                  Projects
-                </Link>
-              </li>
-            </ul>
-            <div className="tags-headline">
-              <h2>Tags</h2>
-              <hr />
-            </div>
-            <ul className="tags tags-row1">
-              {tagList.slice(0, 4).map(tag => (
-                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
-              ))}
-            </ul>
-            <ul className="tags tags-row2">
-              {tagList.slice(4, 7).map(tag => (
-                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
-              ))}
-              <li
-                style={{
-                  paddingLeft: "1.5em",
-                  paddingRight: "1.5em",
-                  fontWeight: "bold",
-                  cursor: "default",
-                }}
-                onClick={this.openFullscreenSidebar}
-              >
-                ...
-              </li>
-            </ul>
-            <ul className="tags all-tags">
-              {tagList.map(tag => (
-                <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="left-sidebar-insert" />
-          <div className="right-sidebar-insert" />
-        </aside>
+            <div className="left-sidebar-insert" />
+            <div className="right-sidebar-insert" />
+          </aside>
+        </div>
       </Layout>
     )
   }

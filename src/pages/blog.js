@@ -217,14 +217,40 @@ class BlogIndex extends React.Component {
                 <hr />
               </div>
               <ul className="tags tags-row1">
-                {tagList.slice(0, 4).map(tag => (
-                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
-                ))}
+                {tagList.slice(0, 4).map(tagDef => {
+                  let color
+                  for (let i = 0; i < tagList.length; i++) {
+                    if (tagList[i].tag === tagDef.tag) {
+                      color = tagList[i].color
+                      break
+                    } else {
+                      color = "#ed5131"
+                    }
+                  }
+                  return (
+                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
+                      tagDef.tag
+                    } (${tagDef.count})`}</li>
+                  )
+                })}
               </ul>
               <ul className="tags tags-row2">
-                {tagList.slice(4, 7).map(tag => (
-                  <li key={tag.tag}>{`${tag.tag} (${tag.count})`}</li>
-                ))}
+                {tagList.slice(4, 7).map(tagDef => {
+                  let color
+                  for (let i = 0; i < tagList.length; i++) {
+                    if (tagList[i].tag === tagDef.tag) {
+                      color = tagList[i].color
+                      break
+                    } else {
+                      color = "#ed5131"
+                    }
+                  }
+                  return (
+                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
+                      tagDef.tag
+                    } (${tagDef.count})`}</li>
+                  )
+                })}
                 <li
                   style={{
                     paddingLeft: "1.5em",

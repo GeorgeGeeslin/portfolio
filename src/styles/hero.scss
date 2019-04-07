@@ -11,7 +11,7 @@
 @function left-of-screen-multiple-box-shadow($n) {
   $value: "-#{random(100)}vw -#{random(100)}vh #FFF";
 
-  @for $i from 2 through $n {
+  @for $i from 0 through $n {
     $value: "#{$value} , -#{random(100)}vw -#{random(100)}vh #FFF";
   }
 
@@ -30,7 +30,6 @@ $left-shadows-big: left-of-screen-multiple-box-shadow(100);
   height: 100vh;
   width: calc(100vw - (100vw - 100%));
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  //  overflow: hidden;
 }
 
 #sky {

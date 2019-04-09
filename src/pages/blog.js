@@ -185,7 +185,7 @@ class BlogIndex extends React.Component {
                 className="close-fullscreen"
                 onClick={this.closeFullscreenSidebar}
               >
-                X
+                <span className="material-icons">close</span>
               </div>
               <div className="recent-articles">
                 <h2>Recent Articles</h2>
@@ -257,10 +257,11 @@ class BlogIndex extends React.Component {
                     paddingRight: "1.5em",
                     fontWeight: "bold",
                     cursor: "default",
+                    padding: 0,
                   }}
                   onClick={this.openFullscreenSidebar}
                 >
-                  ...
+                  <span className="material-icons">more</span>
                 </li>
               </ul>
               <ul className="tags all-tags">

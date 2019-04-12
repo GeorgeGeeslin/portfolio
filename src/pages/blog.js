@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { tagColors } from "../constants.js"
+import { tagColors, getTagsWithCounts } from "../constants.js"
 
 class BlogIndex extends React.Component {
   componentDidMount() {
@@ -65,60 +65,22 @@ class BlogIndex extends React.Component {
     }
   }
 
-  getTagsWithCounts = posts => {
-    let tagList = []
-    let allTags = []
-    let count, prev, listLength
-    const numColors = tagColors.length
-
-    posts.forEach(post => {
-      if (post.node.frontmatter.hasOwnProperty("tags")) {
-        const tags = post.node.frontmatter.tags
-        allTags.push(...tags)
-      }
-    })
-
-    allTags.sort()
-
-    allTags.forEach(function(tag, index) {
-      listLength = tagList.length
-      if (listLength === 0 || tag !== prev) {
-        tagList.push({ tag: tag, count: 1 })
-        count = 1
-      } else {
-        count++
-        tagList[listLength - 1].count = count
-      }
-      prev = tag
-    })
-
-    tagList.forEach(function(tag, index) {
-      if (index < numColors) {
-        tag.color = tagColors[index]
-      } else {
-        tag.color = tagColors[index - numColors]
-      }
-    })
-
-    return tagList
-  }
-
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    let tagList = this.getTagsWithCounts(posts)
+    let tagList = getTagsWithCounts(posts)
     tagList.sort((a, b) => (a.count < b.count ? 1 : -1))
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <div className="blog-index">
-          <div className="blog-list-container">
-            <div className="blog-post-list">
+        <div className="page-wrapper">
+          <div className="content-list-container">
+            <div className="content-list">
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
@@ -290,7 +252,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/(blog)/.*.md$/" } }
+    ) {
       edges {
         node {
           excerpt

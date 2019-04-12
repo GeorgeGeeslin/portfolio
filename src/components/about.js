@@ -101,7 +101,7 @@ function About() {
 
 const aboutQuery = graphql`
   query AboutQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/us.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid

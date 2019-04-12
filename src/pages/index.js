@@ -29,6 +29,7 @@ class IndexPage extends React.Component {
 
     this.setState({ wittyLine: wittyRemarks[randomIndex] })
   }
+
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll)
   }

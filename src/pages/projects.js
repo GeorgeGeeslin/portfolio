@@ -41,21 +41,21 @@ class Projects extends React.Component {
                           __html: node.frontmatter.description || node.excerpt,
                         }}
                       />
-                      {(node.frontmatter.github || node.frontmatter.launch) && (
-                        <ul className="project-links">
-                          {node.frontmatter.github && (
-                            <li>
-                              <a href={node.frontmatter.github}>GitHub</a>
-                            </li>
-                          )}
-                          {node.frontmatter.launch && (
-                            <li>
-                              <a href={node.frontmatter.launch}>Launch</a>
-                            </li>
-                          )}
-                        </ul>
-                      )}
                     </Link>
+                    {(node.frontmatter.github || node.frontmatter.launch) && (
+                      <ul className="project-links">
+                        {node.frontmatter.github && (
+                          <li>
+                            <a href={node.frontmatter.github}>GitHub</a>
+                          </li>
+                        )}
+                        {node.frontmatter.launch && (
+                          <li>
+                            <a href={node.frontmatter.launch}>Launch</a>
+                          </li>
+                        )}
+                      </ul>
+                    )}
                   </div>
                 )
               })}

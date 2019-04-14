@@ -7,6 +7,10 @@ $large-desktop: 1500px;
 $dark-gray: #444;
 $light-gray: #f8f8f8;
 
+$navy: #34495e;
+$orange: #e67e22;
+$red: #e74c3c;
+
 @mixin mobile {
   @media (max-width: #{$tablet}) {
     @content;
@@ -109,7 +113,7 @@ nav {
   padding-top: 1em;
   padding-bottom: 1em;
   z-index: 100;
-  color: orange; /*find a better color... make a var */
+  color: $orange;
 
   @include non-mobile {
     background-color: transparent;
@@ -231,15 +235,19 @@ nav {
 
     @include non-mobile {
       margin-right: 3em;
-
       li {
         display: inline-block;
-        border: 1px solid #fff;
+        border: 1px solid rgba(255, 255, 255, 0);
+        transition: all 0.3s;
+        a {
+          transition: all 0.3s;
+        }
       }
-
       li:hover {
-        background-color: rgba(52, 60, 86, 0.5);
-        border: 1px solid rgba(52, 60, 86, 0.5);
+        border: 1px solid $orange;
+        a {
+          color: $orange;
+        }
       }
     }
   }
@@ -264,6 +272,11 @@ nav.solid {
     .nav-content {
       li:hover {
         background-color: transparent;
+        border: 1px solid $navy;
+        box-shadow: 0.5em 0.5em 0px 3px $red;
+        a {
+          color: $navy;
+        }
       }
     }
   }
@@ -322,7 +335,6 @@ nav.solid {
     font-size: 0.7em;
     margin-right: 0.5em;
     padding: 0.2em;
-    //background-color: #ed5131;
     color: black;
     border-radius: 5%;
     text-align: center;
@@ -609,6 +621,7 @@ nav.solid {
   li {
     display: flex;
     border: 1px solid black;
+    transition: all 0.3s;
     a {
       text-decoration: none;
       display: block;
@@ -616,6 +629,20 @@ nav.solid {
       height: 100%;
       padding: 0.5em;
       margin: 0.5;
+      transition: all 0.3s;
+    }
+  }
+}
+
+@include non-mobile {
+  .project-links {
+    li:hover {
+      background-color: transparent;
+      border: 1px solid $navy;
+      box-shadow: 0.5em 0.5em 0px 3px $red;
+      a {
+        color: $navy;
+      }
     }
   }
 }

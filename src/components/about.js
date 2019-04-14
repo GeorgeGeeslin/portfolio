@@ -9,13 +9,7 @@ function About() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div
-            id="about"
-            style={{
-              /*height: "100vh",*/ paddingLeft: "5em",
-              paddingRight: "5em",
-            }}
-          >
+          <div id="about" className="post-wrapper">
             <h1 align="center">About Me</h1>
             <div className="about-image-container">
               <Image

@@ -649,8 +649,53 @@ nav.solid {
 
 /*Posts*/
 .post-wrapper {
+  code {
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+    font-size: 0.8em;
+    background-color: #eeeeee;
+  }
+
   padding-left: 5em;
   padding-right: 5em;
+  h1 {
+    text-align: center;
+  }
+  .date {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+  pre.language-text {
+    width: 80%;
+    max-width: 60em;
+    min-width: 600px;
+    background-color: #eeeeee;
+    border: 3px ridge #c4c4c4;
+    padding: 1em;
+    margin: auto;
+  }
+}
+
+blockquote {
+  //  background: #f9f9f9;
+  border-left: 10px solid $navy;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  //  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: $navy;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }
 
 /*

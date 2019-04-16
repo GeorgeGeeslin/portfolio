@@ -27,7 +27,7 @@ class Projects extends React.Component {
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
-                    <Link to={node.fields.slug}>
+                    <Link to={"projects/" + node.fields.slug}>
                       <Img
                         fluid={
                           node.frontmatter.coverImage.childImageSharp.fluid

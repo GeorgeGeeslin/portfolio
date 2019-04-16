@@ -18,21 +18,10 @@ class BlogPostTemplate extends React.Component {
         <div className="post-wrapper">
           <div className="post-container">
             <h1>{post.frontmatter.title}</h1>
-            <p
-              style={{
-                display: `block`,
-                marginBottom: "1rem",
-                marginTop: "1rem",
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
+            <p className="date">{post.frontmatter.date}</p>
+            <hr style={{ width: "100%" }} />
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            <hr
-              style={{
-                marginBottom: "1rem",
-              }}
-            />
+            <hr />
 
             <ul
               style={{
@@ -45,15 +34,15 @@ class BlogPostTemplate extends React.Component {
             >
               <li>
                 {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
+                  <Link to={"blog/" + previous.fields.slug} rel="prev">
+                    &larr; {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
               <li>
                 {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title}
+                  <Link to={"blog/" + next.fields.slug} rel="next">
+                    {next.frontmatter.title} &rarr;
                   </Link>
                 )}
               </li>

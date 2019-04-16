@@ -86,7 +86,7 @@ class BlogIndex extends React.Component {
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
-                    <Link to={node.fields.slug}>
+                    <Link to={"blog/" + node.fields.slug}>
                       <Img
                         fluid={
                           node.frontmatter.coverImage.childImageSharp.fluid

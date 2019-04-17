@@ -169,7 +169,7 @@ class BlogIndex extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="nav-link">
+                  <Link to="projects" className="nav-link">
                     Projects
                   </Link>
                 </li>

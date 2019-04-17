@@ -80,12 +80,7 @@ function About() {
                 display: `flex`,
                 marginBottom: "2rem",
               }}
-            >
-              <p>
-                Written by <strong>{author}</strong> who lives and works in
-                Austin Texas. I might add some kinda social media footer here.
-              </p>
-            </div>
+            />
           </div>
         )
       }}

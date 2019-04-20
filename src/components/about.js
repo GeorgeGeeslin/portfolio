@@ -7,7 +7,9 @@ function About() {
     <StaticQuery
       query={aboutQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        const {
+          author /*, social*/,
+        } = data.site.siteMetadata /*TODO: implement social media items*/
         return (
           <div id="about" className="post-wrapper">
             <h1 align="center">About Me</h1>

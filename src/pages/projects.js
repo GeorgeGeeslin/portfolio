@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { tagColors, getTagsWithCounts } from "../constants.js"
+import { /*tagColors,*/ getTagsWithCounts } from "../constants.js"
 
 class Projects extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class Projects extends React.Component {
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
-                    <Link to={"projects/" + node.fields.slug}>
+                    <Link to={"projects" + node.fields.slug}>
                       <Img
                         fluid={
                           node.frontmatter.coverImage.childImageSharp.fluid

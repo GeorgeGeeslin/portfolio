@@ -430,6 +430,9 @@ nav.solid {
     width: 100%;
     text-align: center;
     padding: 0px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .expand-icon-positioner {
@@ -463,6 +466,14 @@ nav.solid {
     height: 50px;
     background-color: $light-gray;
     transition: all 0.3s ease-out;
+  }
+
+  .display-all {
+    background-color: #269ce9;
+  }
+  .disabled {
+    background-color: #e2e2e2;
+    color: #969696;
   }
 
   .sidebar.expand {
@@ -506,7 +517,6 @@ nav.solid {
 
     .all-tags {
       display: flex;
-
       li {
         margin-bottom: 1em;
       }

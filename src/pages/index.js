@@ -1,7 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+//import SEO from "../components/seo" TODO: implement this SEO component
 import About from "../components/about"
 import "../styles/hero.scss"
 
@@ -87,12 +86,12 @@ class IndexPage extends React.Component {
             <span id="line3">{this.state.wittyLine}</span>
           </h1>
           <div id="sky">
-            <div class="stars" id="stars1" />
-            <div class="stars" id="stars2" />
-            <div class="stars" id="stars3" />
-            <div class="stars" id="stars4" />
-            <div class="stars" id="stars5" />
-            <div class="stars" id="stars6" />
+            <div className="stars" id="stars1" />
+            <div className="stars" id="stars2" />
+            <div className="stars" id="stars3" />
+            <div className="stars" id="stars4" />
+            <div className="stars" id="stars5" />
+            <div className="stars" id="stars6" />
           </div>
         </div>
 

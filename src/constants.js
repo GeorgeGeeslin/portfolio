@@ -66,3 +66,17 @@ export const getTagsWithCounts = posts => {
 
   return tagList
 }
+
+export const filterPostsByTag = (posts, selectedTag) => {
+  const filteredPosts = []
+
+  posts.forEach(post => {
+    if (
+      selectedTag === "" ||
+      post.node.frontmatter.tags.includes(selectedTag)
+    ) {
+      filteredPosts.push(post)
+    }
+  })
+  return filteredPosts
+}

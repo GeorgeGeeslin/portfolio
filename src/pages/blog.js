@@ -3,35 +3,59 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { tagColors, getTagsWithCounts } from "../constants.js"
+import { getTagsWithCounts, filterPostsByTag } from "../constants.js"
 
 class BlogIndex extends React.Component {
+  state = {
+    selectedTag: "",
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll)
+    this.checkBodyandViewHeight()
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll)
   }
 
+  componentDidUpdate() {
+    this.checkBodyandViewHeight()
+  }
+
+  checkBodyandViewHeight = () => {
+    let bodyHeight = document.body.scrollHeight
+    let viewportHeight = window.innerHeight
+
+    if (viewportHeight >= bodyHeight) {
+      let sidebar = document.querySelector(".sidebar")
+      sidebar.classList.add("fade-in-sidebar")
+      console.log(sidebar)
+    }
+  }
+
   handleScroll = () => {
+    let bodyHeight = document.body.scrollHeight
+    let viewportHeight = window.innerHeight
     let scrolled = document.documentElement.scrollTop
     let sidebar = document.querySelector(".sidebar")
 
-    if (
-      scrolled > 0 &&
-      !sidebar.classList.contains("fade-in-sidebar") &&
-      !sidebar.classList.contains("fullscreen")
-    ) {
-      sidebar.classList.add("fade-in-sidebar")
-    }
+    if (viewportHeight < bodyHeight) {
+      if (
+        scrolled > 0 &&
+        !sidebar.classList.contains("fade-in-sidebar") &&
+        !sidebar.classList.contains("fullscreen")
+      ) {
+        sidebar.classList.add("fade-in-sidebar")
+      }
 
-    if (
-      scrolled === 0 &&
-      sidebar.classList.contains("fade-in-sidebar") &&
-      !sidebar.classList.contains("fullscreen")
-    ) {
-      sidebar.classList.remove("fade-in-sidebar")
+      if (
+        scrolled === 0 &&
+        sidebar.classList.contains("fade-in-sidebar") &&
+        !sidebar.classList.contains("fullscreen")
+      ) {
+        sidebar.classList.remove("fade-in-sidebar")
+      }
     }
   }
 
@@ -65,10 +89,31 @@ class BlogIndex extends React.Component {
     }
   }
 
+  selectTag = tag => {
+    let allTagsButtons = document.querySelectorAll(".display-all")
+    for (let i = 0; i < allTagsButtons.length; i++) {
+      allTagsButtons[i].classList.remove("disabled")
+    }
+    this.closeFullscreenSidebar()
+    this.setState({ selectedTag: tag })
+  }
+
+  allTags = () => {
+    let allTagsButtons = document.querySelectorAll(".display-all")
+    for (let i = 0; i < allTagsButtons.length; i++) {
+      allTagsButtons[i].classList.add("disabled")
+    }
+    this.closeFullscreenSidebar()
+    this.setState({ selectedTag: "" })
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+
+    const filteredPosts = filterPostsByTag(posts, this.state.selectedTag)
+
     let tagList = getTagsWithCounts(posts)
     tagList.sort((a, b) => (a.count < b.count ? 1 : -1))
 
@@ -81,12 +126,12 @@ class BlogIndex extends React.Component {
         <div className="page-wrapper">
           <div className="content-list-container">
             <div className="content-list">
-              {posts.map(({ node }) => {
+              {filteredPosts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
-                    <Link to={"blog/" + node.fields.slug}>
+                    <Link to={"blog" + node.fields.slug}>
                       <Img
                         fluid={
                           node.frontmatter.coverImage.childImageSharp.fluid
@@ -155,7 +200,7 @@ class BlogIndex extends React.Component {
                 <ul>
                   {posts.slice(0, 5).map(({ node }, index) => (
                     <li key={index} className="recent-article">
-                      <Link to={node.fields.slug}>
+                      <Link to={"blog" + node.fields.slug}>
                         {node.frontmatter.title}
                       </Link>
                     </li>
@@ -169,7 +214,7 @@ class BlogIndex extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="nav-link">
+                  <Link to="projects" className="nav-link">
                     Projects
                   </Link>
                 </li>
@@ -179,7 +224,10 @@ class BlogIndex extends React.Component {
                 <hr />
               </div>
               <ul className="tags tags-row1">
-                {tagList.slice(0, 4).map(tagDef => {
+                <li className="display-all disabled" onClick={this.allTags}>
+                  Display All
+                </li>
+                {tagList.slice(0, 3).map(tagDef => {
                   let color
                   for (let i = 0; i < tagList.length; i++) {
                     if (tagList[i].tag === tagDef.tag) {
@@ -190,14 +238,16 @@ class BlogIndex extends React.Component {
                     }
                   }
                   return (
-                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
-                      tagDef.tag
-                    } (${tagDef.count})`}</li>
+                    <li
+                      key={tagDef.tag}
+                      onClick={() => this.selectTag(tagDef.tag)}
+                      style={{ backgroundColor: color }}
+                    >{`${tagDef.tag} (${tagDef.count})`}</li>
                   )
                 })}
               </ul>
               <ul className="tags tags-row2">
-                {tagList.slice(4, 7).map(tagDef => {
+                {tagList.slice(3, 7).map(tagDef => {
                   let color
                   for (let i = 0; i < tagList.length; i++) {
                     if (tagList[i].tag === tagDef.tag) {
@@ -208,9 +258,11 @@ class BlogIndex extends React.Component {
                     }
                   }
                   return (
-                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
-                      tagDef.tag
-                    } (${tagDef.count})`}</li>
+                    <li
+                      key={tagDef.tag}
+                      onClick={() => this.selectTag(tagDef.tag)}
+                      style={{ backgroundColor: color }}
+                    >{`${tagDef.tag} (${tagDef.count})`}</li>
                   )
                 })}
                 <li
@@ -227,10 +279,15 @@ class BlogIndex extends React.Component {
                 </li>
               </ul>
               <ul className="tags all-tags">
-                {tagList.map(tag => (
-                  <li key={tag.tag} style={{ backgroundColor: tag.color }}>{`${
-                    tag.tag
-                  } (${tag.count})`}</li>
+                <li className="display-all disabled" onClick={this.allTags}>
+                  Display All
+                </li>
+                {tagList.map(tagDef => (
+                  <li
+                    key={tagDef.tag}
+                    onClick={() => this.selectTag(tagDef.tag)}
+                    style={{ backgroundColor: tagDef.color }}
+                  >{`${tagDef.tag} (${tagDef.count})`}</li>
                 ))}
               </ul>
             </div>

@@ -3,9 +3,13 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { tagColors, getTagsWithCounts } from "../constants.js"
+import { getTagsWithCounts, filterPostsByTag } from "../constants.js"
 
 class BlogIndex extends React.Component {
+  state = {
+    selectedTag: "",
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll)
   }
@@ -65,10 +69,25 @@ class BlogIndex extends React.Component {
     }
   }
 
+  selectTag = tag => {
+    let allTagsButton = document.querySelector(".display-all")
+    allTagsButton.classList.remove("disabled")
+    this.setState({ selectedTag: tag })
+  }
+
+  allTags = () => {
+    let allTagsButton = document.querySelector(".display-all")
+    allTagsButton.classList.add("disabled")
+    this.setState({ selectedTag: "" })
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+
+    const filteredPosts = filterPostsByTag(posts, this.state.selectedTag)
+
     let tagList = getTagsWithCounts(posts)
     tagList.sort((a, b) => (a.count < b.count ? 1 : -1))
 
@@ -81,7 +100,7 @@ class BlogIndex extends React.Component {
         <div className="page-wrapper">
           <div className="content-list-container">
             <div className="content-list">
-              {posts.map(({ node }) => {
+              {filteredPosts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
@@ -190,9 +209,11 @@ class BlogIndex extends React.Component {
                     }
                   }
                   return (
-                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
-                      tagDef.tag
-                    } (${tagDef.count})`}</li>
+                    <li
+                      key={tagDef.tag}
+                      onClick={() => this.selectTag(tagDef.tag)}
+                      style={{ backgroundColor: color }}
+                    >{`${tagDef.tag} (${tagDef.count})`}</li>
                   )
                 })}
               </ul>
@@ -208,9 +229,11 @@ class BlogIndex extends React.Component {
                     }
                   }
                   return (
-                    <li key={tagDef.tag} style={{ backgroundColor: color }}>{`${
-                      tagDef.tag
-                    } (${tagDef.count})`}</li>
+                    <li
+                      key={tagDef.tag}
+                      onClick={() => this.selectTag(tagDef.tag)}
+                      style={{ backgroundColor: color }}
+                    >{`${tagDef.tag} (${tagDef.count})`}</li>
                   )
                 })}
                 <li
@@ -227,10 +250,18 @@ class BlogIndex extends React.Component {
                 </li>
               </ul>
               <ul className="tags all-tags">
-                {tagList.map(tag => (
-                  <li key={tag.tag} style={{ backgroundColor: tag.color }}>{`${
-                    tag.tag
-                  } (${tag.count})`}</li>
+                <li
+                  className="tags all-tags display-all disabled"
+                  onClick={this.allTags}
+                >
+                  Display All
+                </li>
+                {tagList.map(tagDef => (
+                  <li
+                    key={tagDef.tag}
+                    onClick={() => this.selectTag(tagDef.tag)}
+                    style={{ backgroundColor: tagDef.color }}
+                  >{`${tagDef.tag} (${tagDef.count})`}</li>
                 ))}
               </ul>
             </div>

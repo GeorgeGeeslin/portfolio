@@ -350,6 +350,12 @@ nav.solid {
   }
 }
 
+.all-tags {
+  li {
+    cursor: pointer;
+  }
+}
+
 @include non-mobile {
   aside {
     h2 {
@@ -369,7 +375,7 @@ nav.solid {
   .sidebar {
     display: flex;
     position: relative;
-    top: -2em;
+    top: -1.5em;
     width: 20%;
     min-width: 250px;
     box-shadow: 0 0 4px grey;
@@ -392,6 +398,28 @@ nav.solid {
         padding-right: 1em;
         padding-left: 1em;
         margin-bottom: 1em;
+        &:hover {
+          box-shadow: 0 0 4px grey;
+        }
+        &:active {
+          position: relative;
+          top: 1px;
+          box-shadow: 0 0 4px grey inset;
+        }
+      }
+      .display-all {
+        background-color: #269ce9;
+      }
+      .display-all.disabled {
+        background-color: #e2e2e2;
+        color: #969696;
+        cursor: default;
+        &:hover {
+          box-shadow: none;
+        }
+        &:active {
+          top: 0;
+        }
       }
     }
   }

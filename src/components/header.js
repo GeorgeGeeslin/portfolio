@@ -37,7 +37,7 @@ const Header = ({ siteTitle, headerSolid }) => (
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-link">
+          <Link to="contact" className="nav-link">
             Contact
           </Link>
         </li>

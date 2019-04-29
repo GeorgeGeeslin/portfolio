@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
+import SEO from "../components/seo"
 import "../styles/layout.scss"
 
 const Layout = ({ children, headerSolid }) => (
@@ -17,6 +18,21 @@ const Layout = ({ children, headerSolid }) => (
     `}
     render={data => (
       <>
+        <SEO
+          title={data.site.siteMetadata.title}
+          keywords={[
+            `blog`,
+            `portfolio`,
+            `George Geeslin`,
+            `gatsby`,
+            `javascript`,
+            `react`,
+            `webdev`,
+            `web development`,
+            `fullstack`,
+            `front-end`,
+          ]}
+        />
         <Header
           siteTitle={data.site.siteMetadata.title}
           headerSolid={window.location.pathname === "/" ? headerSolid : true}

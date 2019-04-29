@@ -15,10 +15,6 @@ class Projects extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
         <div className="page-wrapper">
           <div className="content-list-container" style={{ margin: "auto" }}>
             <div className="content-list">

@@ -1,0 +1,113 @@
+@function multiple-box-shadow($n) {
+  $value: "#{random(200)}vw #{random(200)}vh #FFF";
+
+  @for $i from 2 through $n {
+    $value: "#{$value} , #{random(200)}vw #{random(200)}vh #FFF";
+  }
+
+  @return unquote($value);
+}
+
+@function left-of-screen-multiple-box-shadow($n) {
+  $value: "-#{random(100)}vw -#{random(100)}vh #FFF";
+
+  @for $i from 0 through $n {
+    $value: "#{$value} , -#{random(100)}vw -#{random(100)}vh #FFF";
+  }
+
+  @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+$left-shadows-small: left-of-screen-multiple-box-shadow(700);
+$left-shadows-medium: left-of-screen-multiple-box-shadow(200);
+$left-shadows-big: left-of-screen-multiple-box-shadow(100);
+
+#hero {
+  height: 100vh;
+  width: calc(100vw - (100vw - 100%));
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+#sky {
+  position: relative;
+  left: -50vw;
+  height: 210vh;
+  width: 200vw;
+  animation-delay: 0.2s;
+  animation: star-rotate 160s linear infinite;
+  z-index: 1;
+}
+
+.stars {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+#stars1 {
+  $size: 2px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $shadows-small;
+  opacity: 3 / random(5);
+}
+
+#stars2 {
+  $size: random(3) + 2 + px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $shadows-medium;
+  opacity: 3 / random(5);
+}
+
+#stars3 {
+  $size: random(4) + 3 + px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $shadows-big;
+  opacity: 3 / random(5);
+}
+
+#stars4 {
+  $size: 2px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $left-shadows-small;
+  opacity: 3 / random(5);
+}
+
+#stars5 {
+  $size: random(3) + 2 + px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $left-shadows-medium;
+  opacity: 3 / random(5);
+}
+
+#stars6 {
+  $size: random(4) + 3 + px;
+  width: $size;
+  height: $size;
+  background-color: #fff;
+  box-shadow: $left-shadows-big;
+  opacity: 3 / random(5);
+}
+
+@keyframes star-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

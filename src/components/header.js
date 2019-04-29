@@ -22,7 +22,7 @@ const Header = ({ siteTitle, headerSolid }) => (
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-link">
+          <Link to="/projects" className="nav-link">
             Projects
           </Link>
         </li>
@@ -32,12 +32,7 @@ const Header = ({ siteTitle, headerSolid }) => (
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-link">
-            Resume
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className="nav-link">
+          <Link to="contact" className="nav-link">
             Contact
           </Link>
         </li>

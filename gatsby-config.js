@@ -1,11 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `George Geeslin`,
+    author: `George Geeslin`,
+<<<<<<< HEAD
+    description: `A blog featuring tutorials and pojects about React, JavaScript, HTML5, and front-end development in general.`,
+=======
+    description:
+      "A blog and portfolio featuring front-end and fullstack tutorials and projects",
+>>>>>>> seo
+    siteUrl: `https://georgegeeslin.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `@GBGeeslin`,
     },
   },
   plugins: [
@@ -14,6 +19,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
       },
     },
     {
@@ -50,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-139229783-1`,
       },
     },
     `gatsby-plugin-feed`,
@@ -70,9 +82,9 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: "gatsby-plugin-google-fonts",
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        fonts: ["material icons"],
       },
     },
   ],

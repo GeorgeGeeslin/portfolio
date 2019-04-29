@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
-import "./layout.scss"
+import SEO from "../components/seo"
+import "../styles/layout.scss"
 
 const Layout = ({ children, headerSolid }) => (
   <StaticQuery
@@ -18,6 +18,21 @@ const Layout = ({ children, headerSolid }) => (
     `}
     render={data => (
       <>
+        <SEO
+          title={data.site.siteMetadata.title}
+          keywords={[
+            `blog`,
+            `portfolio`,
+            `George Geeslin`,
+            `gatsby`,
+            `javascript`,
+            `react`,
+            `webdev`,
+            `web development`,
+            `fullstack`,
+            `front-end`,
+          ]}
+        />
         <Header
           siteTitle={data.site.siteMetadata.title}
           headerSolid={window.location.pathname === "/" ? headerSolid : true}
@@ -28,15 +43,10 @@ const Layout = ({ children, headerSolid }) => (
               ? {
                   paddingTop: 0,
                 }
-              : { paddingTop: "100px" }
+              : { paddingTop: "8rem" }
           }
         >
           {children}
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </div>
       </>
     )}

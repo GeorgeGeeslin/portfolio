@@ -2,7 +2,12 @@ module.exports = {
   siteMetadata: {
     title: `George Geeslin`,
     author: `George Geeslin`,
+<<<<<<< HEAD
     description: `A blog featuring tutorials and pojects about React, JavaScript, HTML5, and front-end development in general.`,
+=======
+    description:
+      "A blog and portfolio featuring front-end and fullstack tutorials and projects",
+>>>>>>> seo
     siteUrl: `https://georgegeeslin.com/`,
     social: {
       twitter: `@GBGeeslin`,

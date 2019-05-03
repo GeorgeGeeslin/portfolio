@@ -1,23 +1,20 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-coverImage: cover.jpg
-tags: ["AWS", "Python", "Devops", "Cloud"]
+title: Hello World!
+date: "2019-05-03T16:39:00.000Z"
+coverImage: earth-1365995_1280.jpg
+tags: ["personal development", "meta"]
 ---
 
-This is my first post on my new fake blog! How exciting!
+![Earth Globe Moon](./earth-1365995_1280.jpg)
 
-I'm sure I'll write a lot more interesting things in the future.
+Hi, I'm George Geeslin and if you reading this then you're on my blog. I'm not sure what brought you here, but I hope that you'll find something useful.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
+I'm a web developer, so that's what I'll be writing about. Mostly about things I've built and challenges I encountered along the way, maybe the odd tutorial here or there. Truthfully, I'm doing this for myself. The goal is to become a better developer. There are lots of [articles](https://medium.freecodecamp.org/if-youre-a-developer-you-should-start-blogging-and-here-s-why-b5cb2951d95c) on the internet about why [blogging](https://medium.freecodecamp.org/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf) is good for developers.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+I'm not going to recount all that here, and it's too early for me to start singing the praises of blogging, but the basic premise seems reasonable. The general idea is that by writing about the things I've learned I'll reinforce that learning. Simple.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+I'll also be displaying some personal projects on this site over on the Projects pages.
+
+I'll suppose that's all for now, but expect some more interesting things in the future.
+
+Hello world, nice to meet you.

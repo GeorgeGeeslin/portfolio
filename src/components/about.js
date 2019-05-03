@@ -11,7 +11,11 @@ function About() {
           author /*, social*/,
         } = data.site.siteMetadata /*TODO: implement social media items*/
         return (
-          <div id="about" className="post-wrapper">
+          <div
+            id="about"
+            className="post-wrapper"
+            style={{ minHeight: "100vh" }}
+          >
             <h1 align="center">About Me</h1>
             <div className="about-image-container">
               <Image

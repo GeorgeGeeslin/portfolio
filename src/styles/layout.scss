@@ -716,6 +716,23 @@ nav.solid {
     padding: 1em;
     margin: auto;
   }
+  ul {
+    list-style-type: disc;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  ol {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+  }
 }
 
 blockquote {

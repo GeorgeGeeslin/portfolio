@@ -19,7 +19,7 @@ DreamFactory acts as middleware that sits between your front end and your databa
 
 DreamFactory can also handle user signup and authentication and gives you security controls and custom scripting capabilities.
 
-The easiest way to get DreamFactory up and running is to use docker. This docker-compose file from DreamFactory's [docker hub](https://hub.docker.com/r/dreamfactorysoftware/df-docker/) will get you going in no time:
+The easiest way to get DreamFactory up and running is to use docker. This docker-compose file from DreamFactory's [docker hub](https://hub.docker.com/r/dreamfactorysoftware/df-docker/) will get you going in no time.
 
 ```
 version: '2'
@@ -92,7 +92,7 @@ If your app will require user registration then click the "Services" tab and cli
 
 Click the "Apps" tab and click the "Create" button and fill out the items. Select the role you just created for the Default Role. Notice that your API key has been created and is displayed on this page. You can also access it from the "Services" tab.
 
-When you are initially developing your front end you'll probably want to work locally and communicate with DreamFactory using CORS. If that is the case you can select "No Storage Required" for your App Location.
+When you are developing your front end you may want to work locally and communicate with DreamFactory using CORS. If that is the case you can select "No Storage Required" for your App Location.
 
 Check the "Active" box and click save.
 

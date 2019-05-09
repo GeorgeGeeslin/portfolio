@@ -670,6 +670,9 @@ nav.solid {
       margin: 0.5;
       transition: all 0.3s;
     }
+    a:visited {
+      color: $dark-gray;
+    }
   }
 }
 

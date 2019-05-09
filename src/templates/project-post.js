@@ -17,8 +17,16 @@ class ProjectPostTemplate extends React.Component {
         />
         <div className="post-wrapper">
           <div className="post-container">
-            <h1>{post.frontmatter.title}</h1>
-            <p className="date">{post.frontmatter.date}</p>
+            {post.frontmatter.launch ? (
+              <h1>
+                <a className="title-link" href={post.frontmatter.launch}>
+                  {post.frontmatter.title}
+                </a>
+              </h1>
+            ) : (
+              <h1>{post.frontmatter.title}</h1>
+            )}
+
             <hr style={{ width: "100%" }} />
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
             {(post.frontmatter.github || post.frontmatter.launch) && (

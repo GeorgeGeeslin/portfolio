@@ -5,7 +5,7 @@ coverImage: cover.png
 tags: ["React", "DreamFactory", "Material-UI", "PostgreSQL"]
 description: "blah blah blah blah blah blah blah blah blah blah blah blah"
 github: ""
-launch: "https://timepiece.live/"
+launch: ""
 ---
 
 This was my first real foray into React outside of a a few tutorial projects and a simple weather app. It is a time tracking tool that lets users create, categorize, and track time on tasks. I added Redux, Firebase, and Charts.js to the mix because why not learn a few extra things along the way.

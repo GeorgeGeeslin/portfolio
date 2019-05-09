@@ -757,6 +757,31 @@ blockquote p {
   display: inline;
 }
 
+.projects {
+  ul.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 100%;
+    li {
+      display: inline-block;
+      display: inline-block;
+      font-size: 0.8em;
+      margin-right: 0.5em;
+      padding: 0.2em 0.3em 0.2em 0.3em;
+      color: black;
+      border-radius: 5%;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #ed5131;
+      font-family: futura, avenir, sans-serif;
+    }
+  }
+}
+
 /*Contact*/
 .form-submit {
   display: inline-block;

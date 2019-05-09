@@ -2,9 +2,9 @@
 title: Timepiece
 date: "2018-05-01T22:12:03.284Z"
 coverImage: cover.jpg
-techStack: ["React", "Redux", "Firebase"]
+tags: ["React", "Redux", "Redux Thunk", "Firebase", "Charts.js"]
 description: "blah blah blah blah blah blah blah blah blah blah blah blah"
-github: "https://github.com/GeorgeGeeslin/timepiece"
+#github: "https://github.com/GeorgeGeeslin/timepiece"
 launch: "https://timepiece.live/"
 ---
 

@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 function About() {
@@ -39,19 +39,9 @@ function About() {
               make that possible.
             </p>
             <p>
-              In my professional life I work for Frontline Education as part of
-              the reporting and data analytics team building tools to help our
-              clients in the K-12 education sector view and understand their
-              data.
-            </p>
-            <p>
-              I love web development, especially getting my hands dirty in the
-              front-end. The pace at which it evolves is challenging and
-              exciting. My front-end experience lies in HTML, CSS, and
-              JavaScript and in JavaScript libraries like React.js and jQuery.
-              I’m currently doing most of my front-end development with React
-              (and building this site with Gatsby, a static site generator based
-              on React and GraphQL with an amazing plug-in ecosystem).
+              In my professional life I am a senior report developer at
+              Frontline Education, but I have a passion for web development,
+              which will be the focus of content I post here.
             </p>
             <p>
               I created this site as a place to display some of my personal
@@ -76,11 +66,20 @@ function About() {
             <p>
               When I’m not writing code I like to spend my time with my wife and
               son, watching Netflix, going on hikes and enjoying those precious
-              moments away from the text editor, and when time and life alows I
-              enjoy getting away to New Mexico for some snow boarding. I also
-              play some guitar.
+              moments away from the text editor. When time and life allows I
+              enjoy getting away to New Mexico for some snow boarding or
+              noodling on my guitar.
             </p>
-
+            <p>
+              I'm always interested to talk shop to and work with enthusiastic
+              people. So, if you like what you see here head over to the{" "}
+              <Link to="/contact">Contact</Link> page and send me a message!
+            </p>
+            <p>
+              Feel free to checkout my{" "}
+              <a href="https://github.com/GeorgeGeeslin">github</a> for the code
+              to this site and my other projects.
+            </p>
             <div
               style={{
                 display: `flex`,

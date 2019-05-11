@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { /*tagColors,*/ getTagsWithCounts } from "../constants.js"
+import { getTagsWithCounts } from "../constants.js"
 
 class Projects extends React.Component {
   render() {
@@ -15,11 +15,12 @@ class Projects extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <div className="page-wrapper">
+        <div className={["page-wrapper", "projects"].join(" ")}>
           <div className="content-list-container" style={{ margin: "auto" }}>
             <div className="content-list">
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
+                const tags = node.frontmatter.tags
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
@@ -31,6 +32,13 @@ class Projects extends React.Component {
                       />
 
                       <h2>{title}</h2>
+                      {tags && (
+                        <ul className="tags">
+                          {tags.map(tag => (
+                            <li key={tag}>{tag}</li>
+                          ))}
+                        </ul>
+                      )}
                       <p
                         style={{ maxWidth: "650px" }}
                         dangerouslySetInnerHTML={{
@@ -85,7 +93,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             description
-            techStack
+            tags
             github
             launch
             coverImage {

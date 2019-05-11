@@ -670,6 +670,9 @@ nav.solid {
       margin: 0.5;
       transition: all 0.3s;
     }
+    a:visited {
+      color: $dark-gray;
+    }
   }
 }
 
@@ -683,6 +686,20 @@ nav.solid {
         color: $navy;
       }
     }
+  }
+}
+
+.title-link {
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-out;
+  padding: 0.3em;
+  &:visited {
+    color: $dark-gray;
+  }
+  &:hover {
+    //    text-shadow: 3px 3px 0 $red;
+    border: 1px solid $navy;
+    box-shadow: 0.3em 0.3em 0px 3px $red;
   }
 }
 
@@ -716,14 +733,32 @@ nav.solid {
     padding: 1em;
     margin: auto;
   }
+  ul {
+    list-style-type: disc;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  ol {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  h1,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    padding-top: 1em;
+  }
 }
 
 blockquote {
-  //  background: #f9f9f9;
   border-left: 10px solid $navy;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  //  quotes: "\201C""\201D""\2018""\2019";
 }
 blockquote:before {
   color: $navy;
@@ -735,6 +770,55 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
+}
+
+.projects {
+  ul.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 100%;
+    li {
+      display: inline-block;
+      display: inline-block;
+      font-size: 0.8em;
+      margin-right: 0.5em;
+      padding: 0.2em 0.3em 0.2em 0.3em;
+      color: black;
+      border-radius: 5%;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #ed5131;
+      font-family: futura, avenir, sans-serif;
+    }
+  }
+}
+
+.caption {
+  display: block;
+  font-size: 0.7em;
+  margin: 0 auto;
+  font-family: futura, avenir, sans-serif;
+  width: 100%;
+  max-width: 590px;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.gif-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  .img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /*Contact*/

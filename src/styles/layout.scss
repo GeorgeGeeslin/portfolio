@@ -808,6 +808,19 @@ blockquote p {
   text-align: center;
 }
 
+.gif-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  .img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /*Contact*/
 .form-submit {
   display: inline-block;

@@ -4,7 +4,7 @@ date: "2018-05-01T22:12:03.284Z"
 coverImage: cover.jpg
 tags:
   ["React", "Redux", "Redux Thunk", "React Bootstrap", "Firebase", "Chart.js"]
-description: "A time tracking tool that lets users create, categorize, and track their tasks. Kinda an over enginered todo list - with charts. Watch out Atlassian."
+description: "A time tracking tool that lets users create, categorize, and track their tasks. Kinda like a fancy todo list - with charts. Watch out Atlassian."
 github: ""
 launch: "https://timepiece.live/"
 ---

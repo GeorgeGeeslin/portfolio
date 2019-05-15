@@ -73,7 +73,7 @@ class IndexPage extends React.Component {
 
   render() {
     return (
-      <Layout headerSolid={this.state.headerSolid}>
+      <Layout headerSolid={this.state.headerSolid} path="index">
         <div id="hero">
           <h1 id="heading">
             <span id="line1">Hi, I'm</span>

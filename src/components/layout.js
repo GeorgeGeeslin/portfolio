@@ -5,7 +5,7 @@ import Header from "./header"
 import SEO from "../components/seo"
 import "../styles/layout.scss"
 
-const Layout = ({ children, headerSolid }) => (
+const Layout = ({ children, headerSolid, path }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -35,11 +35,11 @@ const Layout = ({ children, headerSolid }) => (
         />
         <Header
           siteTitle={data.site.siteMetadata.title}
-          headerSolid={window.location.pathname === "/" ? headerSolid : true}
+          headerSolid={path === "index" ? headerSolid : true}
         />
         <div
           style={
-            window.location.pathname === "/"
+            path === "index"
               ? {
                   paddingTop: 0,
                 }

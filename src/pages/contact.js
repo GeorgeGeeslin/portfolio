@@ -13,9 +13,8 @@ class Contact extends React.Component {
           <h1 align="center">Get in touch</h1>
           <div
             style={{
-              width: "80%",
               maxWidth: "650px",
-              minWidth: "400px",
+
               margin: "auto",
               boxShadow: "0 0 4px grey",
             }}
@@ -80,16 +79,7 @@ class Contact extends React.Component {
                 </button>
               </div>
             </form>
-          </div>
-          <div
-            style={{
-              width: "80%",
-              margin: "auto",
-              maxWidth: "650px",
-              minWidth: "400px",
-            }}
-          >
-            <p>
+            <p style={{ width: "90%", margin: "auto" }}>
               Or send me an email at{" "}
               <a href="mailto:george.geeslin@gmail.com">
                 george.geeslin@gmail.com

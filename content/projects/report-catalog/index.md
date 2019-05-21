@@ -22,7 +22,7 @@ Our product, from which these reports are ultimately run, is a large ERP applica
 
 Here's an overview of the web app:
 
-The search bar, with autocomplete lets users search through reports that match their parameters on the right.
+The search bar, with autocomplete lets users search through reports that match their parameters on the left.
 
 <span class="gif-container">![search autocomplete](./autocomplete.gif)</span>
 
@@ -44,7 +44,7 @@ Users can also upload images, with the idea being that they should upload screen
 I used React for the front end along with the React component library Material-UI which provides some slick looking material design inspired UI components.
 
 ###Back End
-The data is coming from a PostgrSQL database. When users select a search criteria a function (postgres for stored procedure) gets called to return the reports. The menu items themselves are populated with simple queries. There is no ORM just raw SQL.
+The data is coming from a PostgreSQL database. When users select a search criteria a function (postgres for stored procedure) gets called to return the reports. The menu items themselves are populated with simple queries. There is no ORM just raw SQL.
 
 ###The Middle
 I used DreamFactory to provide several things. First, it provides an API the front end can use to perform CRUD operations on the database. It also provides user authentication and file storage, which is use hold the screenshots. The images themselves reside in DreamFactory, the database just stores a URL used to retrieve the image.

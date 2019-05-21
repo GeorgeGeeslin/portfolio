@@ -45,15 +45,15 @@ html {
   font-family: avenir, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-size: 18px;
+  font-size: 16px;
   color: $dark-gray;
 
   @include small-desktop {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   @include large-desktop {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 

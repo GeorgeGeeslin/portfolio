@@ -203,7 +203,7 @@ class BlogIndex extends React.Component {
                   ))}
                 </ul>
               </div>
-              <ul className="sidebar-nav">
+              {/*    <ul className="sidebar-nav">
                 <li>
                   <Link to="/" className="nav-link">
                     About
@@ -214,16 +214,17 @@ class BlogIndex extends React.Component {
                     Projects
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
               <div className="tags-headline">
                 <h2>Tags</h2>
                 <hr />
               </div>
               <ul className="tags tags-row1">
+                <li>Filter By Tag:</li>
                 <li className="display-all disabled" onClick={this.allTags}>
                   Display All
                 </li>
-                {tagList.slice(0, 3).map(tagDef => {
+                {tagList.slice(0, 2).map(tagDef => {
                   let color
                   for (let i = 0; i < tagList.length; i++) {
                     if (tagList[i].tag === tagDef.tag) {
@@ -243,7 +244,7 @@ class BlogIndex extends React.Component {
                 })}
               </ul>
               <ul className="tags tags-row2">
-                {tagList.slice(3, 7).map(tagDef => {
+                {tagList.slice(2, 7).map(tagDef => {
                   let color
                   for (let i = 0; i < tagList.length; i++) {
                     if (tagList[i].tag === tagDef.tag) {

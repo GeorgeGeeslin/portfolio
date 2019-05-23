@@ -23,7 +23,7 @@ class Contact extends React.Component {
               method="POST"
               action="https://formspree.io/george.geeslin@gmail.com"
             >
-              <div style={{ width: "90%", margin: "auto" }}>
+              <div style={{ width: "90%", margin: "auto", padding: "1rem" }}>
                 <input
                   type="text"
                   name="name"
@@ -78,13 +78,20 @@ class Contact extends React.Component {
                   Send Me A Message!
                 </button>
               </div>
+              <p
+                style={{
+                  width: "90%",
+                  margin: "auto",
+                  display: "block",
+                  paddingBottom: "1rem",
+                }}
+              >
+                Or send me an email at{" "}
+                <a href="mailto:george.geeslin@gmail.com">
+                  george.geeslin@gmail.com
+                </a>
+              </p>
             </form>
-            <p style={{ width: "90%", margin: "auto" }}>
-              Or send me an email at{" "}
-              <a href="mailto:george.geeslin@gmail.com">
-                george.geeslin@gmail.com
-              </a>
-            </p>
           </div>
         </div>
       </Layout>

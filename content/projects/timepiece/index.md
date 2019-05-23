@@ -27,5 +27,3 @@ Users can also view charts that break down the tasks, categories, and time spent
 
 ![charts](./charts.png)
 <em class="caption">The charts screen provides visualizations and chart control parameters.</em>
-
-I'd do differently if I were to do it all again, such as use a library such as Moment.js instead of handling all the timestamp stuff myself, but all in all this was a good learning project.

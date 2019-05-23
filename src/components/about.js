@@ -16,7 +16,9 @@ function About() {
             className="post-wrapper"
             style={{ minHeight: "100vh" }}
           >
-            <h1 align="center">About Me</h1>
+            <h1 style={{ paddingTop: "1em" }} align="center">
+              About Me
+            </h1>
             <div className="about-image-container">
               <Image
                 fluid={data.avatar.childImageSharp.fluid}

@@ -83,5 +83,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-favicon`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `George Geeslins Portfolio`,
+        short_name: `George Geeslin`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+      },
+    },
   ],
 }

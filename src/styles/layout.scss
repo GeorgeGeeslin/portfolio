@@ -62,6 +62,15 @@ body {
   background-color: $light-gray;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: didot, serif;
+}
+
 p {
   max-width: 60em;
   line-height: 1.5em;
@@ -79,12 +88,18 @@ hr {
   width: 80%;
 }
 
+ul {
+  padding-inline-start: 0px;
+  list-style-type: none;
+}
+
 #hero {
   height: 100vh;
   width: calc(100vw - (100vw - 100%));
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 
   #heading {
+    font-family: avenir, sans-serif;
     position: absolute;
     color: white;
     text-align: center;
@@ -92,13 +107,14 @@ hr {
     margin: 0;
     width: 100%;
     z-index: 2;
-
+    /*
     span {
       position: relative;
       background: -webkit-linear-gradient(white, #38495a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+  */
   }
 }
 
@@ -110,8 +126,8 @@ nav {
   position: fixed;
   width: 100%;
   background-color: white;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   z-index: 100;
   color: $orange;
 
@@ -133,6 +149,9 @@ nav {
 
   @include mobile {
     height: 3.5em;
+    .collapsible-menu {
+      margin-right: 1em;
+    }
   }
 
   ul {
@@ -153,7 +172,9 @@ nav {
     display: flex;
     position: relative;
     left: 1em;
-    flex: none;
+    align-items: center;
+    justify-content: center;
+    //  flex: none;
 
     .circle {
       position: relative;
@@ -181,10 +202,9 @@ nav {
 
     .name {
       display: inline-block;
-      position: relative;
-      line-height: 3em;
       padding-left: 0.5em;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      font-family: didot, serif;
     }
   }
 
@@ -234,7 +254,7 @@ nav {
     }
 
     @include non-mobile {
-      margin-right: 3em;
+      margin-right: 1em;
       li {
         display: inline-block;
         border: 1px solid rgba(255, 255, 255, 0);
@@ -285,13 +305,11 @@ nav.solid {
 #about {
   .about-image-container {
     @include non-mobile {
-      //  margin-right: 2em;
       margin-top: 1em;
       margin-bottom: 1em;
       float: left;
       max-width: 60em;
       width: 50%;
-      //margin-right: auto;
     }
     @include tablet {
       width: 50%;
@@ -382,10 +400,7 @@ nav.solid {
     //    min-width: 250px;
     box-shadow: 0 0 4px grey;
   }
-  ul {
-    padding-inline-start: 0px;
-    list-style-type: none;
-  }
+
   .sidebar-content {
     ul.tags.all-tags {
       display: flex;
@@ -487,7 +502,7 @@ nav.solid {
   }
 
   .sidebar.fullscreen {
-    top: 5.5em;
+    top: 4.5em;
     height: 100vh;
 
     .expand-icon-positioner {
@@ -706,11 +721,22 @@ nav.solid {
 
 /*Posts*/
 .post-wrapper {
+  @include mobile {
+    pre {
+      white-space: pre-wrap; /* Since CSS 2.1 */
+      white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+      white-space: -pre-wrap; /* Opera 4-6 */
+      white-space: -o-pre-wrap; /* Opera 7 */
+      word-wrap: break-word;
+    }
+  }
+
   code {
     font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
     font-size: 0.8em;
     background-color: #eeeeee;
+    overflow-wrap: break-word;
   }
 
   padding-left: 1em;
@@ -822,7 +848,8 @@ blockquote p {
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  .img {
+  img {
+    object-fit: cover;
     margin: 0 auto;
     max-width: 100%;
     height: auto;

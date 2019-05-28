@@ -82,7 +82,6 @@ module.exports = {
         fonts: ["material icons"],
       },
     },
-    `gatsby-plugin-favicon`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

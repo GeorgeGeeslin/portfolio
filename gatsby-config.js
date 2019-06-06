@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `George Geeslin`,
     author: `George Geeslin`,
-    description: `A blog featuring tutorials and pojects about React, JavaScript, HTML5, and front-end development in general.`,
+    description: `A blog featuring tutorials and projects about React, JavaScript, HTML5, and front-end development in general.`,
     siteUrl: `https://georgegeeslin.com/`,
     social: {
       twitter: `@GBGeeslin`,
@@ -73,7 +73,6 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
@@ -93,5 +92,6 @@ module.exports = {
         display: `standalone`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 }

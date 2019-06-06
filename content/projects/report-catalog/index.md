@@ -44,7 +44,7 @@ Users can also upload images, with the idea being that they should upload screen
 I used React for the front end along with the React component library Material-UI which provides some slick looking material design inspired UI components.
 
 ###Back End
-The data is coming from a PostgreSQL database. When users select a search criteria a function (postgres for stored procedure) gets called to return the reports. The menu items themselves are populated with simple queries. There is no ORM just raw SQL.
+The data is coming from a PostgreSQL database. When users select a search criteria a function (postgres for stored procedure) gets called to return the reports. The menu items themselves are populated via DreamFactory API end-points which are just acting upon tables in the database.
 
 ###The Middle
 I used DreamFactory to provide several things. First, it provides an API the front end can use to perform CRUD operations on the database. It also provides user authentication and file storage, which is use hold the screenshots. The images themselves reside in DreamFactory, the database just stores a URL used to retrieve the image.

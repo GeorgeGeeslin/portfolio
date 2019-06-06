@@ -16,7 +16,6 @@ class IndexPage extends React.Component {
       "I make stuff for the internet.",
       "I'm a web developer.",
       "Welcome to my website.",
-      "I shaved this yak for you.",
     ]
 
     function getRandomInt(max) {

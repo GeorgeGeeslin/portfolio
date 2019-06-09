@@ -107,14 +107,13 @@ ul {
     margin: 0;
     width: 100%;
     z-index: 2;
-    /*
+
     span {
       position: relative;
-      background: -webkit-linear-gradient(white, #38495a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      //      background: -webkit-linear-gradient(white, #38495a);
+      //-webkit-background-clip: text;
+      //    -webkit-text-fill-color: transparent;
     }
-  */
   }
 }
 
@@ -709,6 +708,7 @@ nav.solid {
   text-decoration: none;
   transition: box-shadow 0.3s ease-out;
   padding: 0.3em;
+  color: $dark-gray;
   &:visited {
     color: $dark-gray;
   }

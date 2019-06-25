@@ -47,7 +47,7 @@ I used React for the front end along with the React component library Material-U
 The data is coming from a PostgreSQL database. When users select a search criteria a function (postgres for stored procedure) gets called to return the reports. The menu items themselves are populated via DreamFactory API end-points which are just acting upon tables in the database.
 
 ###The Middle
-I used DreamFactory to provide several things. First, it provides an API the front end can use to perform CRUD operations on the database. It also provides user authentication and file storage, which is use hold the screenshots. The images themselves reside in DreamFactory, the database just stores a URL used to retrieve the image.
+I used DreamFactory to provide several things. First, it provides an API the front end can use to perform CRUD operations on the database. It also provides user authentication and file storage, which is used to hold the screenshots. The images themselves reside in DreamFactory, the database just stores a URL used to retrieve the image.
 
 ###Gathering Data
 There are a couple sources of data, other than the domain knowledge being crowd source from staff. First there is the Subversion repository where the reports reside. Then there is a second database that is tied to a different tool use for approving reports for production. This is where the approved version number comes from.

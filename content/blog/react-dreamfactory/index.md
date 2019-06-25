@@ -111,7 +111,7 @@ Now create the new directory: `mkdir /opt/bitnami/dreamfactory/storage/app/<your
 
 Exit DreamFactory's shell and use docker cp to copy your files into place.
 
-`docker cp ./<local directory>/. <container name>:/opt/bitnami/dreamfactory/storage/app<DF directory>`
+`docker cp ./<local directory>/. <container name>:/opt/bitnami/dreamfactory/storage/app/<DF directory>`
 
 ##Set the new app location and allow access
 

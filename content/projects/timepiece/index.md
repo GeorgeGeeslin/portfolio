@@ -13,7 +13,7 @@ Timepiece is a time tracking tool that lets users create, categorize, and track 
 
 It has the basic features you'd expect like the ability to start, pause, finish and delete tasks, and allows users to maintain multiple finished and paused tasks and reactive them at any time.
 
-I used Firebase for the database and for user authentication, which was a free and simple choice. If you'd like to take a look but don't want to sign up you can log in with demo@timepice.live. The password is password. This is a **read-only** user so you won't be able to do much other than look around with some mock data.
+I used Firebase for the database and for user authentication, which was a free and simple choice. If you'd like to take a look but don't want to sign up you can log in with demo@timepiece.live. The password is password. This is a **read-only** user so you won't be able to do much other than look around with some mock data.
 
 ![tasks](./tasks.png)
 <em class="caption">From the main screen users can create and manage tasks.</em>

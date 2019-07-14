@@ -12,10 +12,10 @@ class IndexPage extends React.Component {
 
   componentWillMount() {
     let wittyRemarks = [
-      "And I hope hero images are still cool.",
+      //"And I hope hero images are still cool.",
       "I make stuff for the internet.",
       "I'm a web developer.",
-      "Welcome to my website.",
+      //"Welcome to my website.",
     ]
 
     function getRandomInt(max) {

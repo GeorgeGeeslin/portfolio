@@ -93,6 +93,13 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: $red;
+  &:visited {
+    color: $red;
+  }
+}
+
 #hero {
   height: 100vh;
   width: calc(100vw - (100vw - 100%));
@@ -825,7 +832,8 @@ blockquote p {
       border-radius: 5%;
       text-align: center;
       white-space: nowrap;
-      background-color: #ed5131;
+      //background-color: #ed5131;
+      background-color: orange;
       font-family: futura, avenir, sans-serif;
     }
   }

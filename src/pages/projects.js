@@ -25,15 +25,12 @@ class Projects extends React.Component {
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
                     <Link to={"projects" + node.fields.slug}>
-                      <div
-                        style={{ display: "flex", justifyContent: "center" }}
-                      >
-                        <Img
-                          fixed={
-                            node.frontmatter.coverImage.childImageSharp.fixed
-                          }
-                        />
-                      </div>
+                      <Img
+                        fluid={
+                          node.frontmatter.coverImage.childImageSharp.fluid
+                        }
+                      />
+
                       <h2>{title}</h2>
                       {tags && (
                         <ul className="tags">
@@ -101,8 +98,8 @@ export const pageQuery = graphql`
             launch
             coverImage {
               childImageSharp {
-                fixed(width: 900, height: 350) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 600, maxHeight: 300) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

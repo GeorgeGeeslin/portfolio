@@ -35,14 +35,12 @@ function About() {
               />
             </div>
             <p>
-              My name is George Geeslin. I’m a web and software developer living
-              and working in Austin, Texas. I have a passion for making useful
-              things and learning the technologies, tools, and techniques to
-              make that possible.
+              Hi, my name is George Geeslin, and I'm a Full Stack developer from Austin, TX.
+              I'm currently working at eStrategy Solutions, 
+              before that I was a senior Report Developer at Frontline Education.
             </p>
             <p>
-              In my professional life I am a senior report developer at
-              Frontline Education, but I have a passion for web development,
+              I have a passion for web development,
               which will be the focus of content I post here.
             </p>
             <p>
@@ -54,23 +52,9 @@ function About() {
               my writings.
             </p>
             <p>
-              My personal philosophy as a developer is to cultivate the mindset
-              of a lifelong student. By this, I mean an open minded approach
-              that is willing to consider new ideas, learn new things, and be
-              honest about the things I don’t understand. This also means having
-              the humility to ask for help, but balancing that with the tenacity
-              to try and figure it out first.
-            </p>
-            <p>
-              It also means recognizing that the tools we use are less important
-              than the problem we’re trying to solve.
-            </p>
-            <p>
-              When I’m not writing code I like to spend my time with my wife and
-              son, watching Netflix, going on hikes and enjoying those precious
-              moments away from the text editor. When time and life allows I
-              enjoy getting away to New Mexico for some snow boarding or
-              noodling on my guitar.
+              After initially creating this site, I let it fall dormant for awhile. I guess I just got busy 
+              with life and other projects. I'll be adding a few things here and there and hopefully 
+              will do a better job keeping things current.
             </p>
             <p>
               I'm always interested to talk shop to and work with enthusiastic
@@ -97,7 +81,7 @@ function About() {
 
 const aboutQuery = graphql`
   query AboutQuery {
-    avatar: file(absolutePath: { regex: "/us.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/codecat.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid

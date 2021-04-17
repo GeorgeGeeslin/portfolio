@@ -127,7 +127,7 @@ class BlogIndex extends React.Component {
                 return (
                   <div className="blog-preview-item" key={node.fields.slug}>
                     <hr />
-                    <Link to={"blog" + node.fields.slug}>
+                    <Link to={"/blog" + node.fields.slug}>
                       <Img
                         fluid={
                           node.frontmatter.coverImage.childImageSharp.fluid
@@ -196,7 +196,7 @@ class BlogIndex extends React.Component {
                 <ul>
                   {posts.slice(0, 5).map(({ node }, index) => (
                     <li key={index} className="recent-article">
-                      <Link to={"blog" + node.fields.slug}>
+                      <Link to={"/blog" + node.fields.slug}>
                         {node.frontmatter.title}
                       </Link>
                     </li>

@@ -16,6 +16,6 @@ Like most of my projects, the goal was to explore some new (to me) technologies.
 
 I also wanted to use Serverless Framework and create something with a completely serverless backend. 
 
-Overall the frontend was by far the biggest part, the backend in comparatively simple. 
+Overall the frontend was by far the biggest part, the backend is comparatively simple. 
 
 I plan on writing a few blog posts going over what I learned in more detail.

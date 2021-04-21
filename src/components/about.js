@@ -57,7 +57,7 @@ function About() {
               will do a better job keeping things current.
             </p>
             <p>
-              I'm always interested to talk shop to and work with enthusiastic
+              I'm always interested to talk shop and to work with enthusiastic
               people. So, if you like what you see here head over to the{" "}
               <Link to="/contact">Contact</Link> page and send me a message!
             </p>

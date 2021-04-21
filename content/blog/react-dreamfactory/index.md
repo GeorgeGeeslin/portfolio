@@ -103,11 +103,11 @@ Be sure to select the HTTP verbs you want allowed, and to check "Supports Creden
 
 ##Add your front end files to DreamFactory and allow access
 
-Once you've completed your local develop you might want to set things up so that your website is served up from DreamFactory's built in Apache server.
+Once you've completed your local development you might want to set things up so that your website is served up from DreamFactory's built in Apache server.
 
 First, lets create a directory inside of DreamFactory at the correct location. Access the shell of your DreamFactory container with `docker exec -it <container name> /bin/bash` run `docker ps` if you need to find your container's name.
 
-Now create the new directory: `mkdir /opt/bitnami/dreamfactory/storage/app/<your directory>`.
+Now create a new directory: `mkdir /opt/bitnami/dreamfactory/storage/app/<your directory>`.
 
 Exit DreamFactory's shell and use docker cp to copy your files into place.
 

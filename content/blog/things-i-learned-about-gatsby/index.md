@@ -12,7 +12,7 @@ I recently built this portfolio/blog using Gatsby. Before doing so I was not ver
 
 ##1. There are a lot of tutorials about Gatsby, but the best ones are in the official docs.
 
-I’m sure this is reflective of some terrible deficit of mine as a person, but I don’t always read the docs too closely, at least not until I have a specific problem to solve and my search leads me there. Especially when I’m starting off with something new, I’d much rather watch a few videos and read a couple articles. Just enough to get a dev environment configured and the project running, learn some core concepts, and then jump right in.
+I’m sure this is reflective of some terrible deficit of mine as a person, but I don’t always read the docs too closely, at least not until I have a specific problem to solve and my search leads me there. Especially when I’m starting off with something new. I’d much rather watch a few videos and read a couple articles. Just enough to get a dev environment configured and the project running, learn some core concepts, and then jump right in.
 
 I took the same approach this time around, but I’m glad I quickly stumbled across the [tutorial](https://www.gatsbyjs.org/tutorial/) on the official site. Not only is that tutorial very helpful when just starting out, but the docs themselves are fantastic, well organized, and very easy to digest.
 
@@ -40,4 +40,6 @@ Just to be clear, this is data you're querying to be gathered and baked into the
 
 ##6. Netlify is a really easy way to host your Gatsby site.
 
-If you've ready much about getting started with Gatsby then you've probably come across some talk about Netlify. Its a good choice for hosting. The key things that make it fun is that it's easy to setup and you can have it automatically build a site simply by pushing your code via git. Netlify knows how to build a gatsby site, so you just push your source code and it will build the static files. Netlify also has a CLI you can install, as well as Netlify Dev which lets you run Netlify in a local environment so you can troubleshoot any deployment issues.
+If you've read much about getting started with Gatsby then you've probably come across some talk about Netlify. Its a good choice for hosting. The key things that make it good is that it's easy to set up and you can have it automatically build a site simply by pushing your code via git. Netlify knows how to build a gatsby site, so you just push your source code and it will build the static files. Netlify also has a CLI you can install, as well as Netlify Dev which lets you run Netlify in a local environment so you can troubleshoot any deployment issues. 
+
+On a few occasions I have run into difficulties where things work differently in the local dev server verses production. This is annoying when things are fine in dev and busted in prod. It's usually a syntax problem somewhere, and not too terribly difficult to troubleshoot. Of course troubleshooting in this case means deploying code when you're not yet 100% sure it will fix the problem. If lives or money are at stake you'll probably want a secondary and prod environment you can deploy to so you know things are perfect before deploying to prod. In the case of this blog, the stakes are low enough that I'll troubleshoot in production if it comes down to it.
